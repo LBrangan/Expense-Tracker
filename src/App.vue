@@ -1,14 +1,25 @@
 <template>
-  <Header />
+  <header class="card-header">
+    <h1>Expense Tracker</h1>
+  </header>
+
   <div class="container">
-    <Balance :total="total" /> <IncomeExpenses :income="+income" :expenses="+expenses" />
-    <TransactionList :transactions="transactions" @transactionDeleted="handleTransactionDeleted" />
-    <AddTransaction @transactionSubmitted="handleTransactionSubmitted" />
+    <div class="card-container">
+      <div class="card">
+        <div class="info-text">
+          <Balance :total="total" /> <IncomeExpenses :income="+income" :expenses="+expenses" />
+          <TransactionList
+            :transactions="transactions"
+            @transactionDeleted="handleTransactionDeleted"
+          />
+          <AddTransaction @transactionSubmitted="handleTransactionSubmitted" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
-import Header from './components/Header.vue'
 import Balance from './components/Balance.vue'
 import IncomeExpenses from './components/IncomeExpenses.vue'
 import TransactionList from './components/TransactionList.vue'
